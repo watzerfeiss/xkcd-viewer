@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    
+    "dev": "parcel src/index.html",
+    "build": "rm -rf ./dist && parcel build src/index.html --public-url ./"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/ppesterev/xkcd-viewer/issues"
   },
-  "homepage": "https://github.com/ppesterev/xkcd-viewer#readme"
+  "homepage": "https://github.com/ppesterev/xkcd-viewer#readme",
+  "devDependencies": {
+    "parcel": "2.0.0-beta.3.1"
+  }
 }
