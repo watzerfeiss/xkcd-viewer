@@ -45,6 +45,12 @@
   text-align: initial;
 }
 
+.strip__alt-text {
+  color: slategrey;
+  font-size: 0.9em;
+  font-style: italic;
+}
+
 .strip__footer {
   display: flex;
   justify-content: space-between;
