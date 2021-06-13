@@ -4,7 +4,32 @@
 }
 
 .strip__header {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "title btn"
+    "date btn";
+
   margin-bottom: 10px;
+}
+
+.strip__title {
+  grid-area: title;
+
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+.strip__date {
+  grid-area: date;
+
+  color: grey;
+  font-style: italic;
+}
+
+.strip__btn-display-toggle {
+  grid-area: btn;
 }
 
 .strip__title,
