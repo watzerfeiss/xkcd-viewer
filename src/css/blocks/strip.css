@@ -40,3 +40,7 @@
 .strip__content {
   margin-bottom: 10px;
 }
+
+.strip__transcript {
+  text-align: initial;
+}
