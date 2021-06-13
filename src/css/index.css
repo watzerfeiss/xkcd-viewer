@@ -1,4 +1,6 @@
 @import "./global/global.css";
 
 @import "./blocks/site-wrapper.css";
+@import "./blocks/site-header.css";
+@import "./blocks/strip-navigation.css";
 @import "./blocks/strip.css";

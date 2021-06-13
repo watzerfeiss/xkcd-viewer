@@ -2,3 +2,16 @@
   overflow-x: auto;
   text-align: center;
 }
+
+.strip__header {
+  margin-bottom: 10px;
+}
+
+.strip__title,
+.strip__date {
+  margin: 0;
+}
+
+.strip__content {
+  margin-bottom: 10px;
+}
