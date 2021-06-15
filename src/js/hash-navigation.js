@@ -4,7 +4,7 @@ const navigateTo = (address) => {
 
 const onNavigate = (callback) => {
   const listener = () => {
-    const hash = location.hash.split("#")[1];
+    const hash = location.hash.split("#")[1] || "";
     callback(hash);
   };
 
@@ -13,7 +13,7 @@ const onNavigate = (callback) => {
 
   return () => {
     window.removeEventListener("DOMContentLoaded", listener);
-    window.removeEventListener("hahchange", listener);
+    window.removeEventListener("hashchange", listener);
   };
 };
 
