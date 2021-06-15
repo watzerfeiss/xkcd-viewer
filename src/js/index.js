@@ -1,6 +1,13 @@
-import { addNavigationListener } from "./hash-navigation";
+import { navigateTo, onNavigate } from "./hash-navigation";
+import { validateRequest } from "./strip-request-validation";
 import { getCurrentStripData, getStripDataByNumber } from "./api";
 
-addNavigationListener((hash) => {
-  (hash ? getStripDataByNumber(hash) : getCurrentStripData()).then(console.log);
+onNavigate((address) => {
+  validateRequest(address).then((validAddress) => {
+    if (address !== validAddress) {
+      return navigateTo(validAddress);
+    }
+
+    getStripDataByNumber(validAddress).then(console.log);
+  });
 });

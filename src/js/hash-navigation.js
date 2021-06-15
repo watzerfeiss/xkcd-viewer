@@ -1,6 +1,10 @@
-const addNavigationListener = (callback) => {
-  const listener = (evt) => {
-    const hash = evt.newURL.split("#")[1];
+const navigateTo = (address) => {
+  location.hash = `#${encodeURIComponent(address)}`;
+};
+
+const onNavigate = (callback) => {
+  const listener = () => {
+    const hash = location.hash.split("#")[1];
     callback(hash);
   };
 
@@ -13,4 +17,4 @@ const addNavigationListener = (callback) => {
   };
 };
 
-export { addNavigationListener };
+export { navigateTo, onNavigate };
