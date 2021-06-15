@@ -1,4 +1,5 @@
 const PROXY_URL = "https://thingproxy.freeboard.io/fetch/";
+const LATEST_STRIP_LIFETIME = 1000 * 60 * 5;
 
 let latestStrip = null;
 let latestStripTimestamp = Date.now();
@@ -13,11 +14,12 @@ const request = (url) => {
 
 const getLatestStrip = () => {
   const isLatestStripStale =
-    !latestStrip || Date.now() - latestStripTimestamp > 1000 * 60 * 5;
-  console.log(isLatestStripStale);
+    !latestStrip || Date.now() - latestStripTimestamp > LATEST_STRIP_LIFETIME;
+
   if (isLatestStripStale) {
     return request("https://xkcd.com/info.0.json").then((strip) => {
       latestStrip = strip;
+      latestStripTimestamp = Date.now();
       return strip;
     });
   }
