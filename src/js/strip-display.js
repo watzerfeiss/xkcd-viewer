@@ -1,3 +1,5 @@
+import { parseTranscript } from "./transcript-parser";
+
 const stripContainer = document.querySelector(".strip");
 
 const transcriptToggleBtn = stripContainer.querySelector(
@@ -12,7 +14,7 @@ const sourceLink = stripContainer.querySelector(".strip__source-link");
 
 const updateDisplayedStrip = (stripData) => {
   image.src = stripData.img;
-  transcriptContainer.textContent = stripData.transcript;
+  transcriptContainer.innerHTML = parseTranscript(stripData.transcript);
   titleElement.innerHTML = `#${stripData.num}: ${stripData.title}`;
 
   const { year, month, day } = stripData;
