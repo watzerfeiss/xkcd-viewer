@@ -1,12 +1,16 @@
 const addNavigationListener = (callback) => {
   const listener = (evt) => {
     const hash = evt.newURL.split("#")[1];
-    callback(hash && !isNaN(parseInt(hash)) ? hash : null);
+    callback(hash);
   };
 
+  window.addEventListener("DOMContentLoaded", listener);
   window.addEventListener("hashchange", listener);
 
-  return () => window.removeEventListener("hahchange", listener);
+  return () => {
+    window.removeEventListener("DOMContentLoaded", listener);
+    window.removeEventListener("hahchange", listener);
+  };
 };
 
 export { addNavigationListener };
