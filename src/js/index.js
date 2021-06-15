@@ -1,6 +1,6 @@
 import { redirectTo, onNavigate } from "./hash-navigation";
 import { validateRequest } from "./strip-request-validation";
-import { getStripData } from "./api";
+import { fetchStrip, getLatestStrip } from "./api";
 import { updateDisplayedStrip } from "./strip-display";
 
 import "./navbar";
@@ -13,11 +13,11 @@ onNavigate((address) => {
       return redirectTo(validAddress);
     }
 
-    getStripData(validAddress).then((stripData) => {
-      updateDisplayedStrip(stripData);
-      getStripData().then((latestStripData) => {
-        displayedNum = stripData.num;
-        latestNum = latestStripData.num;
+    fetchStrip(validAddress).then((strip) => {
+      updateDisplayedStrip(strip);
+      getLatestStrip().then((latestStrip) => {
+        displayedNum = strip.num;
+        latestNum = latestStrip.num;
 
         updateNavbar(displayedNum, latestNum);
       });

@@ -1,7 +1,7 @@
-import { getStripData } from "./api";
+import { getLatestStrip } from "./api";
 
 const validateRequest = (address) => {
-  return getStripData().then(({ num: maxNum }) => {
+  return getLatestStrip().then(({ num: maxNum }) => {
     const requestedNumber = parseInt(address);
     const isRequestedNumberValid =
       !isNaN(requestedNumber) &&
