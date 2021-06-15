@@ -12,12 +12,10 @@ links.forEach((link) => {
 
 const prevLink = navbar.querySelector("[data-navlink-prev]");
 const nextLink = navbar.querySelector("[data-navlink-next]");
-const latestLink = navbar.querySelector("[data-navlink-latest]");
 
 const updateNavbar = (displayedStripNum, latestStripNum) => {
   prevLink.href = `?n=${displayedStripNum - 1}`;
   nextLink.href = `?n=${displayedStripNum + 1}`;
-  latestLink.href = `?n=${latestStripNum}`;
 };
 
 export { updateNavbar };
