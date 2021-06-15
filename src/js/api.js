@@ -8,9 +8,9 @@ const request = (url) => {
     });
 };
 
-const getCurrentStripData = () => request("https://xkcd.com/info.0.json");
+const getStripData = (num) =>
+  num
+    ? request(`https://xkcd.com/${num}/info.0.json`)
+    : request("https://xkcd.com/info.0.json");
 
-const getStripDataByNumber = (num) =>
-  request(`https://xkcd.com/${num}/info.0.json`);
-
-export { getCurrentStripData, getStripDataByNumber };
+export { getStripData };

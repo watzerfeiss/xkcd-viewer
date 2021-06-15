@@ -1,6 +1,6 @@
 import { navigateTo, onNavigate } from "./hash-navigation";
 import { validateRequest } from "./strip-request-validation";
-import { getCurrentStripData, getStripDataByNumber } from "./api";
+import { getStripData } from "./api";
 
 onNavigate((address) => {
   validateRequest(address).then((validAddress) => {
@@ -8,6 +8,6 @@ onNavigate((address) => {
       return navigateTo(validAddress);
     }
 
-    getStripDataByNumber(validAddress).then(console.log);
+    getStripData(validAddress).then(console.log);
   });
 });
