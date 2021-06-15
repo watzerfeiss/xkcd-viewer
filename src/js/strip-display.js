@@ -10,7 +10,7 @@ const sourceLink = stripContainer.querySelector(".strip__source-link");
 const updateDisplayedStrip = (stripData) => {
   image.src = stripData.img;
   transcriptContainer.textContent = stripData.transcript;
-  titleElement.textContent = `#${stripData.num}: ${stripData.title}`;
+  titleElement.innerHTML = `#${stripData.num}: ${stripData.title}`;
 
   const { year, month, day } = stripData;
   const postedDate = new Date(year, month - 1, day);
