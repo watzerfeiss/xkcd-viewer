@@ -1,5 +1,8 @@
 const stripContainer = document.querySelector(".strip");
 
+const transcriptToggleBtn = stripContainer.querySelector(
+  ".strip__btn-display-toggle"
+);
 const image = stripContainer.querySelector(".strip__image");
 const transcriptContainer = stripContainer.querySelector(".strip__transcript");
 const titleElement = stripContainer.querySelector(".strip__title");
@@ -21,5 +24,11 @@ const updateDisplayedStrip = (stripData) => {
   altTextElement.textContent = stripData.alt;
   sourceLink.href = `https://xkcd.com/${stripData.num}`;
 };
+
+const toggleTranscript = () => {
+  image.classList.toggle("visually-hidden");
+  transcriptContainer.classList.toggle("visually-hidden");
+};
+transcriptToggleBtn.addEventListener("click", toggleTranscript);
 
 export { updateDisplayedStrip };
