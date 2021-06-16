@@ -4,7 +4,6 @@ const listeners = [];
 const callListeners = () => listeners.forEach((listener) => listener());
 
 const navigateTo = (address) => {
-  console.log(`navigating to ${address}`);
   history.pushState(
     null,
     null,
@@ -15,7 +14,6 @@ const navigateTo = (address) => {
 };
 
 const redirectTo = (address) => {
-  console.log(`redirecting to ${address}`);
   history.replaceState(
     null,
     null,

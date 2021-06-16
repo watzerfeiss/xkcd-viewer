@@ -8,7 +8,6 @@ import { updateNavbar } from "./navbar";
 
 onNavigate((address) => {
   validateRequest(address).then((validAddress) => {
-    console.log(address, validAddress);
     if (address !== validAddress) {
       return redirectTo(validAddress);
     }
