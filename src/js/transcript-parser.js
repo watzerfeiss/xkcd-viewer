@@ -1,17 +1,16 @@
 const parseTranscript = (rawText) => {
-  const paragraphs = rawText
-    .replace(/{{.*}}/, "")
+  if (!rawText) {
+    return "<em>No transcript available</em>";
+  }
+
+  return rawText
+    .replace(/{{.*[tT]ext:.*}}/, "")
     .trim()
-    .split("\n\n");
-  return paragraphs
-    .map((p) => {
-      p = p
-        .replaceAll(/\<\<(.*)\>\>/g, "<code>$1</code>")
-        .replaceAll(/\[\[(.*)\]\]/g, "<strong>$1</strong>")
-        .replaceAll(/\(\((.*)\)\)/g, "<em>$1</em>")
-        .replaceAll("\n", "<br>");
-      return `<p>${p}</p>`;
-    })
+    .replaceAll(/\<\<(.*?)\>\>/g, "<code>$1</code>")
+    .replaceAll(/\[\[(.*?)\]\]/g, "<strong>$1</strong>")
+    .replaceAll(/\(\((.*?)\)\)/g, "<em>$1</em>")
+    .split("\n\n")
+    .map((p) => `<p>${p.replaceAll("\n", "<br>")}</p>`)
     .join("");
 };
 
