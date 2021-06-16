@@ -2,10 +2,10 @@
   "name": "xkcd-viewer",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "dev": "parcel src/index.html",
-    "build": "rm -rf ./dist && parcel build src/index.html --public-url ./"
+    "build": "rm -rf ./dist && parcel build src/index.html --public-url ./ --no-source-maps",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/ppesterev/xkcd-viewer#readme",
   "devDependencies": {
+    "gh-pages": "3.2.1",
     "parcel": "2.0.0-beta.3.1"
   }
 }
