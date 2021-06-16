@@ -1,11 +1,10 @@
-const PROXY_URL = "https://thingproxy.freeboard.io/fetch/";
 const LATEST_STRIP_LIFETIME = 1000 * 60 * 5;
 
 let latestStrip = null;
 let latestStripTimestamp = Date.now();
 
 const request = (url) => {
-  return fetch(`${PROXY_URL}${url}`)
+  return fetch(url)
     .then((response) => response.json())
     .catch(() => {
       throw new Error("Failed to load comic data");
@@ -17,7 +16,7 @@ const getLatestStrip = () => {
     !latestStrip || Date.now() - latestStripTimestamp > LATEST_STRIP_LIFETIME;
 
   if (isLatestStripStale) {
-    return request("https://xkcd.com/info.0.json").then((strip) => {
+    return request("https://xkcd.now.sh/?comic=latest").then((strip) => {
       latestStrip = strip;
       latestStripTimestamp = Date.now();
       return strip;
@@ -27,6 +26,6 @@ const getLatestStrip = () => {
 };
 
 const fetchStrip = (num) =>
-  num ? request(`https://xkcd.com/${num}/info.0.json`) : getLatestStrip();
+  num ? request(`https://xkcd.now.sh/?comic=${num}`) : getLatestStrip();
 
 export { fetchStrip, getLatestStrip };
