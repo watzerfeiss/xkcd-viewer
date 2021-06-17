@@ -21,7 +21,16 @@ const updateDisplayedStrip = (stripData) => {
   const image = new Image();
   image.src = stripData.img;
   imageContainer.innerHTML = "";
-  imageContainer.appendChild(image);
+
+  if (stripData.link) {
+    const link = document.createElement("a");
+    link.href = stripData.link;
+    link.target = "blank";
+    link.appendChild(image);
+    imageContainer.appendChild(link);
+  } else {
+    imageContainer.appendChild(image);
+  }
   transcriptContainer.innerHTML = parseTranscript(stripData.transcript);
 
   titleNumberElement.textContent = `#${stripData.num}:`;
@@ -38,7 +47,7 @@ const updateDisplayedStrip = (stripData) => {
 };
 
 const toggleTranscript = () => {
-  image.classList.toggle("visually-hidden");
+  imageContainer.classList.toggle("visually-hidden");
   transcriptContainer.classList.toggle("visually-hidden");
 };
 transcriptToggleBtn.addEventListener("click", toggleTranscript);
