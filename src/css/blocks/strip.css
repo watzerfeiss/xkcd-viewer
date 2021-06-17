@@ -4,8 +4,11 @@
 
 .strip__content {
   margin-bottom: 20px;
-  overflow-x: auto;
   text-align: center;
+}
+
+.strip__image-container {
+  overflow-x: auto;
 }
 
 .strip__transcript {
@@ -35,6 +38,7 @@
 
 .strip__source-link {
   padding: 3px 5px;
+  margin-left: -5px;
 
   text-decoration: none;
   color: steelblue;

@@ -68,21 +68,22 @@
           <svg class="icon">
             <use href="#skip-back"></use>
           </svg>
-          First</a>
+          <span class="navigation__link-text-label">First</span></a>
         <a data-navlink-prev href="" class="navigation__link navigation__link--prev">
           <svg class="icon">
             <use href="#chevron-left"></use>
           </svg>
-          Previous</a>
-        <a href="?n=random" class="navigation__link navigation__link--random">Random</a>
+          <span class="navigation__link-text-label">Previous</span></a>
+        <a href="?n=random" class="navigation__link navigation__link--random"><span
+            class="navigation__link-text-label">Random</span></a>
         <a data-navlink-next href="" class="navigation__link navigation__link--next">
-          Next
+          <span class="navigation__link-text-label">Next</span>
           <svg class="icon">
             <use href="#chevron-right"></use>
           </svg>
         </a>
         <a data-navlink-latest href="?" class="navigation__link navigation__link--last">
-          Latest
+          <span class="navigation__link-text-label">Latest</span>
           <svg class="icon">
             <use href="#skip-forward"></use>
           </svg></a>
@@ -112,7 +113,7 @@
           </button>
         </header>
         <div class="strip__content">
-          <div id="comic" data-strip-image class="strip__image"></div>
+          <div id="comic" data-strip-image class="strip__image-container"></div>
           <div data-strip-transcript class="strip__transcript visually-hidden">
           </div>
           <p data-strip-alt-text class="strip__alt-text">
