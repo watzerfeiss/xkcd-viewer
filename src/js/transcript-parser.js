@@ -6,7 +6,7 @@ const parseTranscript = (rawText) => {
   return (
     rawText
       // remove the alt-text transcript, as it's handled separately
-      .replace(/{{[\w\W]*?([aA]lt|[tT]ext):[\w\W]*?}}/, "")
+      .replace(/{{[^{]*?([aA]lt|[tT]itle)\ ?([tT]ext)*:[^}]*?}}/, "")
       .trim()
 
       // escape angle brackets
@@ -16,6 +16,7 @@ const parseTranscript = (rawText) => {
       .replaceAll(/\<\<([\w\W]*?)\>\>/g, "<code>$1</code>")
       .replaceAll(/\[\[([\w\W]*?)\]\]/g, "<strong>$1</strong>")
       .replaceAll(/\(\(([\w\W]*?)\)\)/g, "<em>$1</em>")
+      .replaceAll(/\{\{([\w\W]*?)\}\}/g, "<em><strong>$1</strong></em>")
 
       //split into paragraphs
       .split("\n\n")
