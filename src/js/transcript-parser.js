@@ -6,7 +6,7 @@ const parseTranscript = (rawText) => {
   return (
     rawText
       // remove the alt-text transcript, as it's handled separately
-      .replace(/{{[^{]*?([aA]lt|[tT]itle)\ ?([tT]ext)*:[^}]*?}}/, "")
+      .replace(/{{[^{]*?([aA]lt|[tT]itle)[\ -]?([tT]ext)*:[^}]*?}}/, "")
       .trim()
 
       // escape angle brackets
