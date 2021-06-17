@@ -3,19 +3,29 @@ import { parseTranscript } from "./transcript-parser";
 const stripContainer = document.querySelector(".strip");
 
 const transcriptToggleBtn = stripContainer.querySelector(
-  ".strip__btn-display-toggle"
+  "[data-strip-view-toggle]"
 );
-const image = stripContainer.querySelector(".strip__image");
-const transcriptContainer = stripContainer.querySelector(".strip__transcript");
-const titleElement = stripContainer.querySelector(".strip__title");
-const dateElement = stripContainer.querySelector(".strip__date");
-const altTextElement = stripContainer.querySelector(".strip__alt-text");
-const sourceLink = stripContainer.querySelector(".strip__source-link");
+const imageContainer = stripContainer.querySelector("[data-strip-image]");
+const transcriptContainer = stripContainer.querySelector(
+  "[data-strip-transcript]"
+);
+
+const titleNumberElement = stripContainer.querySelector("[data-strip-number]");
+const titleElement = stripContainer.querySelector("[data-strip-title]");
+
+const dateElement = stripContainer.querySelector("[data-strip-date]");
+const altTextElement = stripContainer.querySelector("[data-strip-alt-text]");
+const sourceLink = stripContainer.querySelector("[data-strip-source-link]");
 
 const updateDisplayedStrip = (stripData) => {
+  const image = new Image();
   image.src = stripData.img;
+  imageContainer.innerHTML = "";
+  imageContainer.appendChild(image);
   transcriptContainer.innerHTML = parseTranscript(stripData.transcript);
-  titleElement.innerHTML = `#${stripData.num}: ${stripData.title}`;
+
+  titleNumberElement.textContent = `#${stripData.num}:`;
+  titleElement.textContent = `${stripData.title}`;
 
   const { year, month, day } = stripData;
   const postedDate = new Date(year, month - 1, day);

@@ -1,0 +1,35 @@
+.strip-header {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "title btn"
+    "date btn";
+}
+
+.strip-header__title {
+  grid-area: title;
+
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+.strip-header__date {
+  grid-area: date;
+
+  color: grey;
+  font-style: italic;
+}
+
+.strip-header__btn-display-toggle {
+  grid-area: btn;
+}
+
+.strip-header__title,
+.strip-header__date {
+  margin: 0;
+}
+
+.strip-header__title-number {
+  color: slategrey;
+}
