@@ -2,11 +2,45 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 5px;
 }
 
 .navigation__link {
   display: flex;
   align-items: center;
   gap: 5px;
+
+  padding: 5px 10px;
+
+  font-size: 18px;
+  color: rgb(21, 61, 94);
+  text-decoration: none;
+
+  background-color: rgba(197, 214, 230, 0.35);
+  border-radius: 5px;
+}
+
+.navigation__link--first {
+  margin-right: auto;
+}
+
+.navigation__link--last {
+  margin-left: auto;
+}
+
+.navigation__link:hover {
+  color: white;
+  background-color: rgba(21, 61, 94, 0.7);
+}
+.navigation__link:active {
+  background-color: rgba(21, 61, 94, 0.8);
+}
+
+.navigation__link:not([href]) {
+  color: grey;
+  background-color: whitesmoke;
+}
+
+.navigation__link .icon {
+  margin-top: 2px;
 }
