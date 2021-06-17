@@ -58,3 +58,13 @@
 .strip-header__title-number {
   color: slategrey;
 }
+
+@media (max-width: 760px) {
+  .strip-header {
+    display: block;
+  }
+
+  .strip-header__btn-display-toggle {
+    margin-top: 10px;
+  }
+}

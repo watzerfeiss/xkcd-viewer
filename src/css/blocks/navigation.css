@@ -45,3 +45,10 @@
 .navigation__link .icon {
   margin-top: 2px;
 }
+
+@media (max-width: 760px) {
+  .navigation__link:not(.navigation__link--random)
+    .navigation__link-text-label {
+    display: none;
+  }
+}
