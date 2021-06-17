@@ -10,6 +10,7 @@
 .strip-header__title {
   grid-area: title;
 
+  font-family: "Roboto Slab", serif;
   font-size: 1.5em;
   font-weight: 400;
 }
