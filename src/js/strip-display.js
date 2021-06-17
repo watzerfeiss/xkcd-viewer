@@ -34,7 +34,7 @@ const updateDisplayedStrip = (stripData) => {
   transcriptContainer.innerHTML = parseTranscript(stripData.transcript);
 
   titleNumberElement.textContent = `#${stripData.num}:`;
-  titleElement.textContent = `${stripData.title}`;
+  titleElement.innerHTML = `${stripData.title}`;
 
   const { year, month, day } = stripData;
   const postedDate = new Date(year, month - 1, day);
