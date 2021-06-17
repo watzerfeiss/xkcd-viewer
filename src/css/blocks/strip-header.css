@@ -22,7 +22,31 @@
 }
 
 .strip-header__btn-display-toggle {
+  position: relative;
   grid-area: btn;
+  align-self: center;
+
+  padding: 5px 10px;
+
+  color: darkslategrey;
+  font: inherit;
+
+  background: whitesmoke;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 3px 3px 5px -2px darkgrey;
+}
+
+.strip-header__btn-display-toggle:hover {
+  color: rgb(34, 56, 56);
+  background-color: rgb(236, 236, 236);
+}
+
+.strip-header__btn-display-toggle:active {
+  top: 2px;
+  left: 1px;
+  box-shadow: 1px 1px 4px -1px grey;
 }
 
 .strip-header__title,
