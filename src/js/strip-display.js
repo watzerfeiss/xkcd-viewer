@@ -49,6 +49,9 @@ const updateDisplayedStrip = (stripData) => {
 const toggleTranscript = () => {
   imageContainer.classList.toggle("visually-hidden");
   transcriptContainer.classList.toggle("visually-hidden");
+
+  transcriptToggleBtn.classList.toggle("toggle-btn--image");
+  transcriptToggleBtn.classList.toggle("toggle-btn--transcript");
 };
 transcriptToggleBtn.addEventListener("click", toggleTranscript);
 

@@ -1,0 +1,14 @@
+.toggle-btn__label {
+  display: flex;
+  gap: 5px;
+}
+
+.toggle-btn__label .icon {
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.toggle-btn--transcript .toggle-btn__label--image,
+.toggle-btn--image .toggle-btn__label--transcript {
+  display: none;
+}

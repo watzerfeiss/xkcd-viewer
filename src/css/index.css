@@ -1,6 +1,7 @@
 @import "./global/global.css";
 @import "./blocks/icon.css";
 @import "./blocks/external-link.css";
+@import "./blocks/toggle-btn.css";
 
 @import "./blocks/site-wrapper.css";
 @import "./blocks/site-header.css";
