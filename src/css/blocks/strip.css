@@ -1,3 +1,7 @@
+.strip {
+  margin-bottom: 20px;
+}
+
 .strip__header {
   margin-bottom: 24px;
 }
@@ -37,27 +41,5 @@
 }
 
 .strip__source-link {
-  padding: 3px 5px;
   margin-left: -5px;
-
-  text-decoration: none;
-  color: steelblue;
-
-  border-radius: 5px;
-}
-
-.strip__source-link:hover {
-  background-color: rgba(135, 175, 250, 0.15);
-}
-
-.strip__source-link:active {
-  background-color: rgba(135, 175, 250, 0.25);
-}
-
-.strip__source-link:visited {
-  color: rgb(112, 89, 194);
-}
-
-.strip__source-link:visited:hover {
-  background-color: rgba(144, 119, 235, 0.15);
 }

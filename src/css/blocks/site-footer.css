@@ -3,3 +3,7 @@
   font-size: 0.9em;
   font-style: italic;
 }
+
+.site-footer__copyright .external-link {
+  padding: 0 2px;
+}
