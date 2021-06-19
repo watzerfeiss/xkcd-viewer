@@ -21,6 +21,7 @@ const titleElement = stripContainer.querySelector("[data-strip-title]");
 const dateElement = stripContainer.querySelector("[data-strip-date]");
 const altTextElement = stripContainer.querySelector("[data-strip-alt-text]");
 const sourceLink = stripContainer.querySelector("[data-strip-source-link]");
+const explainLink = stripContainer.querySelector("[data-strip-explain-link]");
 
 const beginUpdatingStrip = () => {
   stripPlaceholder.style.display = null;
@@ -75,7 +76,9 @@ const updateDisplayedStrip = (stripData) => {
     { month: "long", day: "numeric", year: "numeric" }
   )}`;
   altTextElement.textContent = stripData.alt;
+
   sourceLink.href = `https://xkcd.com/${stripData.num}`;
+  explainLink.href = `https://www.explainxkcd.com/wiki/index.php/${stripData.num}`;
 };
 
 const toggleTranscript = () => {

@@ -5,6 +5,7 @@
 }
 
 .external-link {
+  margin: -3px -5px;
   padding: 3px 5px;
 
   text-decoration: none;

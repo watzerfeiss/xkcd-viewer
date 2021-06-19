@@ -39,7 +39,3 @@
   display: flex;
   justify-content: space-between;
 }
-
-.strip__source-link {
-  margin-left: -5px;
-}
