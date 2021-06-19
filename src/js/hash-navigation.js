@@ -1,31 +1,15 @@
-const QUERY_PARAMETER = "n";
-
 const listeners = [];
 const callListeners = () => listeners.forEach((listener) => listener());
 
 const navigateTo = (address) => {
-  history.pushState(
-    null,
-    null,
-    address ? `?${QUERY_PARAMETER}=${encodeURIComponent(address)}` : "?"
-  );
-
-  callListeners();
+  location.hash = `#${encodeURIComponent(address)}`;
 };
 
-const redirectTo = (address) => {
-  history.replaceState(
-    null,
-    null,
-    address ? `?${QUERY_PARAMETER}=${encodeURIComponent(address)}` : "?"
-  );
-
-  callListeners();
-};
+const redirectTo = (address) => navigateTo(address);
 
 const onNavigate = (callback) => {
   const listener = () => {
-    const address = new URL(location).searchParams.get(QUERY_PARAMETER) || "";
+    const address = location.hash.slice(1) || "";
     callback(address);
   };
 
@@ -34,6 +18,6 @@ const onNavigate = (callback) => {
 };
 
 window.addEventListener("DOMContentLoaded", callListeners);
-window.addEventListener("popstate", callListeners);
+window.addEventListener("hashchange", callListeners);
 
 export { navigateTo, redirectTo, onNavigate };
