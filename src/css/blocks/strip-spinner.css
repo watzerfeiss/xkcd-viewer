@@ -1,0 +1,24 @@
+.strip-spinner {
+  display: grid;
+  place-items: center;
+
+  height: 300px;
+}
+
+.strip-spinner__icon {
+  width: 100px;
+  height: 100px;
+  color: rgb(220, 229, 240);
+
+  animation: 1s loading linear infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: none;
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
