@@ -6,7 +6,9 @@ const links = navbar.querySelectorAll("a");
 links.forEach((link) => {
   link.addEventListener("click", (evt) => {
     evt.preventDefault();
-    navigateTo(link.href.split("#")[1]);
+    if (link.hasAttribute("href")) {
+      navigateTo(link.href.split("#")[1]);
+    }
   });
 });
 
