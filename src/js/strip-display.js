@@ -32,7 +32,6 @@ const beginUpdatingStrip = () => {
 
   stripPlaceholder.classList.add("strip-placeholder--loading");
   stripPlaceholder.classList.remove("strip-placeholder--error");
-
   stripPlaceholderMessage.textContent = "Loading...";
 };
 
@@ -43,8 +42,7 @@ const updateDisplayedStrip = (stripData) => {
 
     stripPlaceholder.classList.remove("strip-placeholder--loading");
     stripPlaceholder.classList.add("strip-placeholder--error");
-
-    stripPlaceholderMessage.textContent = "Failed to load strip data";
+    stripPlaceholderMessage.textContent = "Error loading strip data";
     return;
   }
 
