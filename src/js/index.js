@@ -6,8 +6,6 @@ import { beginUpdatingStrip, updateDisplayedStrip } from "./strip-display";
 import "./navbar";
 import { updateNavbar } from "./navbar";
 
-beginUpdatingStrip();
-
 onNavigate((address) => {
   validateRequest(address).then((validAddress) => {
     if (address !== validAddress) {

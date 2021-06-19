@@ -27,9 +27,6 @@ const beginUpdatingStrip = () => {
   stripPlaceholder.style.display = null;
   stripContainer.style.display = "none";
 
-  stripPlaceholder.style.display = null;
-  stripContainer.style.display = "none";
-
   stripPlaceholder.classList.add("strip-placeholder--loading");
   stripPlaceholder.classList.remove("strip-placeholder--error");
   stripPlaceholderMessage.textContent = "Loading...";
