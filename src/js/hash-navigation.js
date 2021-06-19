@@ -7,7 +7,7 @@ const navigateTo = (address) => {
   history.pushState(
     null,
     null,
-    address ? `?${QUERY_PARAMETER}=${encodeURIComponent(address)}` : "?"
+    address ? `#${encodeURIComponent(address)}` : "#"
   );
 
   callListeners();
@@ -17,7 +17,7 @@ const redirectTo = (address) => {
   history.replaceState(
     null,
     null,
-    address ? `?${QUERY_PARAMETER}=${encodeURIComponent(address)}` : "?"
+    address ? `#${encodeURIComponent(address)}` : "#"
   );
 
   callListeners();
@@ -25,7 +25,7 @@ const redirectTo = (address) => {
 
 const onNavigate = (callback) => {
   const listener = () => {
-    const address = new URL(location).searchParams.get(QUERY_PARAMETER) || "";
+    const address = location.hash.slice(1) || "";
     callback(address);
   };
 
