@@ -12,15 +12,20 @@ onNavigate((address) => {
       return redirectTo(validAddress);
     }
 
-    console.log(beginUpdatingStrip());
-    fetchStrip(validAddress).then((strip) => {
-      updateDisplayedStrip(strip);
-      getLatestStrip().then((latestStrip) => {
-        displayedNum = strip.num;
-        latestNum = latestStrip.num;
+    getLatestStrip().then((latestStrip) => {
+      latestNum = latestStrip.num;
+      displayedNum = parseInt(validAddress) || latestNum;
 
-        updateNavbar(displayedNum, latestNum);
-      });
+      updateNavbar(displayedNum, latestNum);
     });
+
+    beginUpdatingStrip();
+    fetchStrip(validAddress)
+      .then((strip) => {
+        updateDisplayedStrip(strip);
+      })
+      .catch(() => {
+        updateDisplayedStrip(null);
+      });
   });
 });
