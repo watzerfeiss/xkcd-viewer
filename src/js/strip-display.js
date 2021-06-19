@@ -1,5 +1,6 @@
 import { parseTranscript } from "./transcript-parser";
 
+const stripSpinner = document.querySelector("[data-strip-loading-placeholder]");
 const stripContainer = document.querySelector(".strip");
 
 const transcriptToggleBtn = stripContainer.querySelector(
@@ -17,7 +18,15 @@ const dateElement = stripContainer.querySelector("[data-strip-date]");
 const altTextElement = stripContainer.querySelector("[data-strip-alt-text]");
 const sourceLink = stripContainer.querySelector("[data-strip-source-link]");
 
+const beginUpdatingStrip = () => {
+  stripSpinner.style.display = null;
+  stripContainer.style.display = "none";
+};
+
 const updateDisplayedStrip = (stripData) => {
+  stripSpinner.style.display = "none";
+  stripContainer.style.display = null;
+
   const image = new Image();
   image.src = stripData.img;
   imageContainer.innerHTML = "";
@@ -55,4 +64,4 @@ const toggleTranscript = () => {
 };
 transcriptToggleBtn.addEventListener("click", toggleTranscript);
 
-export { updateDisplayedStrip };
+export { beginUpdatingStrip, updateDisplayedStrip };

@@ -1,7 +1,7 @@
 import { redirectTo, onNavigate } from "./hash-navigation";
 import { validateRequest } from "./strip-request-validation";
 import { fetchStrip, getLatestStrip } from "./api";
-import { updateDisplayedStrip } from "./strip-display";
+import { beginUpdatingStrip, updateDisplayedStrip } from "./strip-display";
 
 import "./navbar";
 import { updateNavbar } from "./navbar";
@@ -12,6 +12,7 @@ onNavigate((address) => {
       return redirectTo(validAddress);
     }
 
+    console.log(beginUpdatingStrip());
     fetchStrip(validAddress).then((strip) => {
       updateDisplayedStrip(strip);
       getLatestStrip().then((latestStrip) => {
