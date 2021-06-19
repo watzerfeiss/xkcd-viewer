@@ -1,0 +1,43 @@
+.strip-placeholder {
+  display: grid;
+  place-items: center;
+  place-content: center;
+
+  height: 300px;
+}
+
+.strip-placeholder--loading {
+  color: rgb(220, 229, 240);
+}
+
+.strip-placeholder--error {
+  color: rgb(207, 148, 148);
+}
+
+.strip-placeholder--loading .strip-placeholder__icon--error,
+.strip-placeholder--error .strip-placeholder__icon--loading {
+  display: none;
+}
+
+.strip-placeholder__icon {
+  width: 100px;
+  height: 100px;
+}
+
+.strip-placeholder__icon--loading {
+  animation: 1s loading linear infinite;
+}
+
+.strip-placeholder__message {
+  font-size: 1.2em;
+}
+
+@keyframes loading {
+  from {
+    transform: none;
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

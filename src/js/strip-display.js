@@ -1,6 +1,10 @@
 import { parseTranscript } from "./transcript-parser";
 
-const stripSpinner = document.querySelector("[data-strip-loading-placeholder]");
+const stripPlaceholder = document.querySelector("[data-strip-placeholder]");
+const stripPlaceholderMessage = document.querySelector(
+  "[data-strip-placeholder-message]"
+);
+
 const stripContainer = document.querySelector(".strip");
 
 const transcriptToggleBtn = stripContainer.querySelector(
@@ -19,12 +23,31 @@ const altTextElement = stripContainer.querySelector("[data-strip-alt-text]");
 const sourceLink = stripContainer.querySelector("[data-strip-source-link]");
 
 const beginUpdatingStrip = () => {
-  stripSpinner.style.display = null;
+  stripPlaceholder.style.display = null;
   stripContainer.style.display = "none";
+
+  stripPlaceholder.style.display = null;
+  stripContainer.style.display = "none";
+
+  stripPlaceholder.classList.add("strip-placeholder--loading");
+  stripPlaceholder.classList.remove("strip-placeholder--error");
+
+  stripPlaceholderMessage.textContent = "Loading...";
 };
 
 const updateDisplayedStrip = (stripData) => {
-  stripSpinner.style.display = "none";
+  if (!stripData) {
+    stripPlaceholder.style.display = null;
+    stripContainer.style.display = "none";
+
+    stripPlaceholder.classList.remove("strip-placeholder--loading");
+    stripPlaceholder.classList.add("strip-placeholder--error");
+
+    stripPlaceholderMessage.textContent = "Failed to load strip data";
+    return;
+  }
+
+  stripPlaceholder.style.display = "none";
   stripContainer.style.display = null;
 
   const image = new Image();
