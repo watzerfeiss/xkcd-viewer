@@ -7,6 +7,8 @@ import "./navbar";
 import { updateNavbar } from "./navbar";
 
 onNavigate((address) => {
+  beginUpdatingStrip();
+
   validateRequest(address).then((validAddress) => {
     if (address !== validAddress) {
       return redirectTo(validAddress);
@@ -19,13 +21,12 @@ onNavigate((address) => {
       updateNavbar(displayedNum, latestNum);
     });
 
-    beginUpdatingStrip();
     fetchStrip(validAddress)
       .then((strip) => {
-        updateDisplayedStrip(strip);
+        updateDisplayedStrip(null, strip);
       })
-      .catch(() => {
-        updateDisplayedStrip(null);
+      .catch((err) => {
+        updateDisplayedStrip(err, null);
       });
   });
 });

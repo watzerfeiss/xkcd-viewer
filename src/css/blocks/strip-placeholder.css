@@ -10,12 +10,22 @@
   color: rgb(220, 229, 240);
 }
 
-.strip-placeholder--error {
+.strip-placeholder--error,
+.strip-placeholder--404 {
   color: rgb(207, 148, 148);
 }
 
-.strip-placeholder--loading .strip-placeholder__icon--error,
-.strip-placeholder--error .strip-placeholder__icon--loading {
+.strip-placeholder--404::before {
+  content: "404";
+  font-size: 60px;
+  font-weight: 700;
+}
+
+.strip-placeholder--loading
+  .strip-placeholder__icon:not(.strip-placeholder__icon--loading),
+.strip-placeholder--error
+  .strip-placeholder__icon:not(.strip-placeholder__icon--error),
+.strip-placeholder--404 .strip-placeholder__icon {
   display: none;
 }
 

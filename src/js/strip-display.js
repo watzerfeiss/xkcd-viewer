@@ -29,13 +29,21 @@ const beginUpdatingStrip = () => {
 
   stripPlaceholder.classList.add("strip-placeholder--loading");
   stripPlaceholder.classList.remove("strip-placeholder--error");
+  stripPlaceholder.classList.remove("strip-placeholder--404");
   stripPlaceholderMessage.textContent = "Loading...";
 };
 
-const updateDisplayedStrip = (stripData) => {
-  if (!stripData) {
+const updateDisplayedStrip = (err, stripData) => {
+  if (err) {
     stripPlaceholder.style.display = null;
     stripContainer.style.display = "none";
+
+    if (err.message === "404") {
+      stripPlaceholder.classList.remove("strip-placeholder--loading");
+      stripPlaceholder.classList.add("strip-placeholder--404");
+      stripPlaceholderMessage.textContent = "Not Found";
+      return;
+    }
 
     stripPlaceholder.classList.remove("strip-placeholder--loading");
     stripPlaceholder.classList.add("strip-placeholder--error");

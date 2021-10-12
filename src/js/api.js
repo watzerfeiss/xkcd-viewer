@@ -5,11 +5,12 @@ let latestStrip = null;
 let latestStripTimestamp = Date.now();
 
 const request = (url) => {
-  return fetch(`${PROXY_URL}${url}`)
-    .then((response) => response.json())
-    .catch(() => {
-      throw new Error("Failed to load comic data");
-    });
+  return fetch(`${PROXY_URL}${url}`).then((response) => {
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+    return response.json();
+  });
 };
 
 const getLatestStrip = () => {
