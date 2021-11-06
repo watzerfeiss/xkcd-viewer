@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "parcel src/index.html",
     "build": "rm -rf ./dist && parcel build src/index.html --public-url ./ --no-source-maps",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist -m 'deploy to gh-pages'"
   },
   "repository": {
     "type": "git",
