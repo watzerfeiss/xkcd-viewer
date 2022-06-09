@@ -1,12 +1,27 @@
 .site-header {
-  margin-bottom: 50px;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "title search"
+    "nav nav";
 
-  padding-top: 15px;
+  margin-bottom: 50px;
 }
 
 .site-header__title {
-  margin: 0 0 20px 0;
+  grid-area: title;
+  margin: 15px 0 0 0;
 
   font-family: "Roboto Slab", serif;
   font-size: 1.2em;
+}
+
+.site-header__search {
+  grid-area: search;
+  z-index: 5;
+}
+
+.site-header__nav {
+  grid-area: nav;
 }

@@ -65,7 +65,25 @@
   <div class="site-wrapper">
     <header class="site-header">
       <p class="site-header__title">xkcd viewer</p>
-      <nav class="site-header-nav navigation">
+      <div class="site-header__search search">
+        <form class="search__form">
+          <label for="search_input" class="visually-hidden">Search by comic title</label>
+          <input type="search" name="search" id="search_input" class="search__input" placeholder="Search by comic title"
+            autocomplete="off">
+          <ul class="search__results">
+
+          </ul>
+          <template id="search_result_template">
+            <li class="search__result">
+              <a href="" class="search__link">
+                <span class="search__result-text"></span>
+                <span class="search__result-number"></span>
+              </a>
+            </li>
+          </template>
+        </form>
+      </div>
+      <nav class="site-header__nav navigation">
         <a data-navlink-first href="#1" class="navigation__link navigation__link--first" aria-label="First strip">
           <svg class="icon">
             <use href="#skip-back"></use>
