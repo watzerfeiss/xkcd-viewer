@@ -1,4 +1,4 @@
-const PROXY_URL = "https://eigencors.herokuapp.com/";
+const PROXY_URL = "https://eigencors.deno.dev/";
 const LATEST_STRIP_LIFETIME = 1000 * 60 * 5;
 const LIST_URL = "https://xkcd.com/archive/";
 
