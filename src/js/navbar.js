@@ -1,16 +1,4 @@
-import { navigateTo, onNavigate } from "./hash-navigation";
-
 const navbar = document.querySelector(".navigation");
-
-const links = navbar.querySelectorAll("a");
-links.forEach((link) => {
-  link.addEventListener("click", (evt) => {
-    evt.preventDefault();
-    if (link.hasAttribute("href")) {
-      navigateTo(link.href.split("#")[1]);
-    }
-  });
-});
 
 const firstLink = navbar.querySelector("[data-navlink-first]");
 const prevLink = navbar.querySelector("[data-navlink-prev]");

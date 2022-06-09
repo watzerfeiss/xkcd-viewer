@@ -1,5 +1,3 @@
-const QUERY_PARAMETER = "n";
-
 const listeners = [];
 const callListeners = () => listeners.forEach((listener) => listener());
 
