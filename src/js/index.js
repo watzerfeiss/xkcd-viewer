@@ -2,9 +2,9 @@ import { redirectTo, onNavigate } from "./hash-navigation";
 import { validateRequest } from "./strip-request-validation";
 import { fetchStrip, getLatestStrip } from "./api";
 import { beginUpdatingStrip, updateDisplayedStrip } from "./strip-display";
-
-import "./navbar";
 import { updateNavbar } from "./navbar";
+
+import "./search";
 
 onNavigate((address) => {
   beginUpdatingStrip();
