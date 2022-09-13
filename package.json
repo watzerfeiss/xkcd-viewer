@@ -20,7 +20,6 @@
   "homepage": "https://github.com/ppesterev/xkcd-viewer#readme",
   "devDependencies": {
     "gh-pages": "3.2.1",
-    "parcel": "2.0.0-beta.3.1",
-    "parcel-reporter-static-files-copy": "^1.3.0"
+    "parcel": "^2.7.0"
   }
 }
