@@ -15,8 +15,8 @@ onNavigate((address) => {
     }
 
     getLatestStrip().then((latestStrip) => {
-      latestNum = latestStrip.num;
-      displayedNum = parseInt(validAddress) || latestNum;
+      const latestNum = latestStrip.num;
+      const displayedNum = parseInt(validAddress) || latestNum;
 
       updateNavbar(displayedNum, latestNum);
     });
