@@ -71,6 +71,7 @@ const updateDisplayedStrip = (err, stripData) => {
 
   titleNumberElement.textContent = `#${stripData.num}:`;
   titleElement.innerHTML = `${stripData.title}`;
+  document.title = `${stripData.num}: ${stripData.title} - xkcd viewer`
 
   const { year, month, day } = stripData;
   const postedDate = new Date(year, month - 1, day);
